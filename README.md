@@ -1,3 +1,3 @@
 # Is my first app on GitHub
-## c-sharp-hello-world
+## This app create and deleat users on database
 ##Download it and use it
