@@ -23,21 +23,22 @@ namespace interview
         }
         void fill_listbox()
         {
-            string ConnectString = "Server=localhost;Database=felveteli;Uid=root;Pwd=;";
+            string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
             string Query = "select * from people";
             MySqlConnection DBconnect = new MySqlConnection(ConnectString);
             MySqlCommand cmdDataBase = new MySqlCommand(Query, DBconnect);
             MySqlDataReader myReader;
+            Person person = new Person();
             try
             {
                 DBconnect.Open();
                 myReader = cmdDataBase.ExecuteReader();
                 while (myReader.Read())
                 {
-                    string nr = myReader.GetString("nr");
-                    string firstname = myReader.GetString("first_name");
-                    string lastname = myReader.GetString("last_name");
-                    listBox1.Items.Add(nr + " " + firstname + " " + lastname);
+                    person.Id = myReader.GetInt32("id");
+                    person.Firstname = myReader.GetString("first_name");
+                    person.Lastname = myReader.GetString("last_name");
+                    listBox1.Items.Add(person.Id + " " + person.Firstname + " " + person.Lastname);
 
                 }
             }
@@ -51,7 +52,7 @@ namespace interview
 
         private void DBconnection()
         {
-            string ConnectString = "Server=localhost;Database=felveteli;Uid=root;Pwd=;";
+            string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
             MySqlConnection DBconnect = new MySqlConnection(ConnectString);
             try
             {
@@ -73,7 +74,7 @@ namespace interview
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string ConnectString = "Server=localhost;Database=felveteli;Uid=root;Pwd=;";
+            string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
             string Query = "insert into people(first_name,last_name) values('"+this.first_name_txt.Text+"','"+this.last_name_txt.Text+"');"; 
             MySqlConnection DBconnect = new MySqlConnection(ConnectString);
             MySqlCommand cmdDataBase = new MySqlCommand(Query, DBconnect);
@@ -121,8 +122,8 @@ namespace interview
             
             string[] del = listBox1.SelectedItem.ToString().Split(' ');
            
-            string ConnectString = "Server=localhost;Database=felveteli;Uid=root;Pwd=;";
-            string Query = "delete from people where nr= "+del[0];
+            string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
+            string Query = "delete from people where id= "+del[0];
             MySqlConnection DBconnect = new MySqlConnection(ConnectString);
             MySqlCommand cmdDataBase = new MySqlCommand(Query, DBconnect);
             MySqlDataReader myReader;
