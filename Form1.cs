@@ -20,7 +20,14 @@ namespace interview
             InitializeComponent();
             DBconnection();
             fill_listbox();
+            string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
+            string Query = "select * from people";
+            this.connection = new MySqlConnection(ConnectString);
+            this.connection.Open();
+
         }
+        private MySqlConnection connection;
+
         void fill_listbox()
         {
             string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
@@ -75,7 +82,7 @@ namespace interview
         private void button3_Click(object sender, EventArgs e)
         {
             string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
-            string Query = "insert into people(first_name,last_name) values('"+this.first_name_txt.Text+"','"+this.last_name_txt.Text+"');"; 
+            string Query = "insert into people(first_name,last_name) values('" + this.first_name_txt.Text + "','" + this.last_name_txt.Text + "');";
             MySqlConnection DBconnect = new MySqlConnection(ConnectString);
             MySqlCommand cmdDataBase = new MySqlCommand(Query, DBconnect);
             MySqlDataReader myReader;
@@ -83,25 +90,24 @@ namespace interview
             {
                 DBconnect.Open();
                 myReader = cmdDataBase.ExecuteReader();
-               // MessageBox.Show("Added");
+                // MessageBox.Show("Added");
                 while (myReader.Read())
                 {
 
                 }
                 refresh();
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
         private void refresh()
         {
             listBox1.Items.Clear();
             fill_listbox();
-            btn_delete.Visible = false;
             btn_delete.Visible = false;
             first_name_txt.Text = "";
             last_name_txt.Text = "";
@@ -115,15 +121,15 @@ namespace interview
                 btn_delete.Visible = true;
             }
         }
-       
+
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            
+
             string[] del = listBox1.SelectedItem.ToString().Split(' ');
-           
+
             string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
-            string Query = "delete from people where id= "+del[0];
+            string Query = "delete from people where id= " + del[0];
             MySqlConnection DBconnect = new MySqlConnection(ConnectString);
             MySqlCommand cmdDataBase = new MySqlCommand(Query, DBconnect);
             MySqlDataReader myReader;
@@ -131,18 +137,33 @@ namespace interview
             {
                 DBconnect.Open();
                 myReader = cmdDataBase.ExecuteReader();
-               // MessageBox.Show("Deleted");
+                // MessageBox.Show("Deleted");
                 while (myReader.Read())
                 {
 
                 }
                 refresh();
-               
+
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            personDTO a = new personDTO(this.connection);
+            MessageBox.Show(a.findOne(2).Lastname);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            personDTO b = new personDTO(this.connection);
+            MessageBox.Show(b.findAll().ToString());
+            foreach(Person person in b.findAll()) {
+                Console.WriteLine(person.toString());
             }
         }
     }

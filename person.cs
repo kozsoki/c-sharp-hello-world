@@ -10,24 +10,26 @@ namespace interview
     {
     
             private int id;
-            public int Id
-            {
-                get { return id; }
-                set { id = value; }
-            }
-
             private string firstName;
-            public string Firstname
+            private string lastName;
+            public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+           public string Firstname
             {
                 get { return firstName; }
                 set { firstName = value; }
-            }
-
-            private string lastName;
+            }  
             public string Lastname
             {
                 get { return lastName; }
                 set { lastName = value; }
-            } 
+            }
+
+        public string toString() {
+            return "Person: id: " + id + "First Name: " + firstName + "Last Name: " + lastName;
+        }
     }
 }
