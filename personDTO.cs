@@ -78,13 +78,13 @@ namespace interview
             
             
          }
-        /*public void delete(Person person)
+        public void delete(Person person)
         {
             
-            MySqlCommand command = new MySqlCommand("DELETE FROM people WHERE id= " + del[0], this.connect);
-          
+            MySqlCommand command = new MySqlCommand("DELETE FROM people WHERE id= @del", this.connect);
+            command.Parameters.AddWithValue("@del", person.Id);
             command.ExecuteNonQuery();
             
-        }*/
+        }
     }
 }
