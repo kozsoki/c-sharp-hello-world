@@ -31,14 +31,14 @@
             this.dataSet1 = new System.Data.DataSet();
             this.first_name_txt = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.last_name_txt = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.btn_delete = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataSet1
@@ -61,25 +61,6 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Add";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(244, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "First Name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(463, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Last Name";
             // 
             // last_name_txt
             // 
@@ -88,62 +69,68 @@
             this.last_name_txt.Size = new System.Drawing.Size(213, 22);
             this.last_name_txt.TabIndex = 5;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(89, 151);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(521, 276);
-            this.listBox1.TabIndex = 6;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_DoubleClick);
-            // 
             // btn_delete
             // 
             this.btn_delete.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_delete.Location = new System.Drawing.Point(651, 164);
+            this.btn_delete.Location = new System.Drawing.Point(564, 151);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(133, 67);
             this.btn_delete.TabIndex = 7;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = false;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(651, 260);
+            this.button2.Location = new System.Drawing.Point(564, 255);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(178, 23);
             this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
+            this.button2.Text = "Secon Person LastName";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(651, 299);
+            this.button4.Location = new System.Drawing.Point(564, 300);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(178, 23);
             this.button4.TabIndex = 9;
-            this.button4.Text = "button4";
+            this.button4.Text = "All People ";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(564, 378);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 49);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "EXIT";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(126, 146);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(378, 322);
+            this.dataGridView1.TabIndex = 11;
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(885, 474);
+            this.ClientSize = new System.Drawing.Size(795, 493);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.last_name_txt);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.first_name_txt);
             this.Name = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,13 +141,11 @@
         private System.Data.DataSet dataSet1;
         private System.Windows.Forms.TextBox first_name_txt;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox last_name_txt;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button1;
     }
 }
 
