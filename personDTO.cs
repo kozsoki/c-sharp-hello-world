@@ -10,11 +10,11 @@ using System.Windows.Forms;
 namespace interview 
 {
     //osztaly
-    public class PersonDTO : Form1
+    public class PersonDTO 
     {
 
         //private method
-        public MySqlConnection connect;
+        private MySqlConnection connect;
 
         //konstruktor parameterrel
         public PersonDTO(MySqlConnection DBconnect)   

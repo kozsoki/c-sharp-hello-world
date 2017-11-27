@@ -50,17 +50,29 @@ namespace interview
             dataGridView1.Columns[0].Name = "ID";
             dataGridView1.Columns[1].Name = "First Name";
             dataGridView1.Columns[2].Name = "Last Name";
+            
+
+            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.HeaderText = "Delete";
+            buttonColumn.Name = "Delete";
+            buttonColumn.Text = "Delete";
+            buttonColumn.UseColumnTextForButtonValue = true;
+            dataGridView1.Columns.Add(buttonColumn);
+
+            dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
 
             foreach (Person person in people)
             {
-                string[] row = new string[] { person.Id.ToString(), person.Firstname, person.Lastname };
-
+                
+               
+                object[] row = new object[] { person.Id.ToString(), person.Firstname, person.Lastname };
+                
                 dataGridView1.Rows.Add(row);
+                
+                
             }
            
-            
-
-
+           
         }
         // letrehozza a DBconnection fuggvenyt
      /*  private void DBconnection()
@@ -104,14 +116,7 @@ namespace interview
         }
         */
 
-       
-
       
-
-     
-        
-       
-
         public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -119,11 +124,20 @@ namespace interview
             
             if (dataGridView1.SelectedRows != null)
             {
-                btn_delete.Visible = true;
+
+                delete(dataGridView1.Rows[e.RowIndex].Cells[0].ToString());
 
             }
             
 
+        }
+        public void delete(string id)
+        {
+            MySqlCommand command = new MySqlCommand("DELETE FROM people WHERE id= @del", this.connect);
+
+            command.Parameters.AddWithValue("@del", id);
+
+            command.ExecuteNonQuery();
         }
 
         
