@@ -94,7 +94,7 @@ namespace interview
             {
                 if (e.RowIndex !=0 )
                 {
-                   
+                    //itt hibat ad mert az e.RowIndexet le kell nullazni
                     personDTO.delete(Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
                     MessageBox.Show("A "+dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()+"-as/es idval rendelkezo torolve lett");
                     refresh();
@@ -116,7 +116,7 @@ namespace interview
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); //itt hibat ad ha az utolsot vagy az utolso elottit torli
+            textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); 
 
         }
 
