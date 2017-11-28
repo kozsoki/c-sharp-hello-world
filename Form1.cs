@@ -22,6 +22,8 @@ namespace interview
 
         private PersonDTO personDTO;
 
+        
+
         //konstruktor
         public Form1() 
         {
@@ -31,7 +33,7 @@ namespace interview
             string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
 
             MySqlConnection connect = new MySqlConnection(ConnectString);
-
+            
             personDTO = new PersonDTO(connect);
             //meghivja a fuggvenyt
             load_data();
@@ -59,7 +61,7 @@ namespace interview
             buttonColumn.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(buttonColumn);
 
-            dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
+            dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellDeleteClick);
 
             foreach (Person person in people)
             {
@@ -71,76 +73,66 @@ namespace interview
                 
                 
             }
-           
+            
            
         }
-        // letrehozza a DBconnection fuggvenyt
-     /*  private void DBconnection()
-        {
-            string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
-
-            MySqlConnection DBconnect = new MySqlConnection(ConnectString);
-
-            try
-            {
-                DBconnect.Open();
-
-                btn_delete.Visible = false;
-
-                //MessageBox.Show("You are connected");
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-       */ 
-       
-
-       
-       /* private void refresh()
+               
+        public void refresh()
         {
             
             dataGridView1.Rows.Clear();
 
             load_data();
-
-            btn_delete.Visible = false;
-
-            first_name_txt.Text = "";
-
-            last_name_txt.Text = "";
-
             
         }
-        */
-
+        
+       
       
-        public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        public void dataGridView1_CellDeleteClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                if (e.RowIndex !=0 )
+                {
+                   
+                    personDTO.delete(Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
+                    MessageBox.Show("A "+dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()+"-as/es idval rendelkezo torolve lett");
+                    refresh();
+                    
+
+                }
+                else
+                {
+                    MessageBox.Show("nem mukodik");
+                }
+            }
             DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
             
-            if (dataGridView1.SelectedRows != null)
-            {
-
-                delete(dataGridView1.Rows[e.RowIndex].Cells[0].ToString());
-
-            }
+           
             
 
         }
-        public void delete(string id)
+      
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            MySqlCommand command = new MySqlCommand("DELETE FROM people WHERE id= @del", this.connect);
+            textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); //itt hibat ad ha az utolsot vagy az utolso elottit torli
 
-            command.Parameters.AddWithValue("@del", id);
-
-            command.ExecuteNonQuery();
         }
 
-        
+        private void btn_addpperson_Click_1(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+
+            load_data();
+        }
     }
 }
 

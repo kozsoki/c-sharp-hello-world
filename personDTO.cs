@@ -111,6 +111,7 @@ namespace interview
         {
             MySqlCommand command = new MySqlCommand("INSERT INTO people(first_name, last_name) values('"+ person.Firstname +"', '"+ person.Lastname +"');", this.connect);
 
+
             //ez egy method ami vissza teriti a sorok szamat
             command.ExecuteNonQuery();
 
@@ -130,7 +131,19 @@ namespace interview
             myReader.Close();
 
             return id;
+            
         }
+        public void insert(string fname, string lname)
+        {
+            MySqlCommand command = new MySqlCommand("INSERT INTO people(first_name, last_name) values('" + fname + "', '" + lname + "');", this.connect);
+
+
+            //ez egy method ami vissza teriti a sorok szamat
+            command.ExecuteNonQuery();
+
+           
+        }
+
         //letrehozza az update fuggvenyt a person parameterrel aminek nincs visszateritesi erteke
         public void update(Person person)
         {
@@ -152,6 +165,14 @@ namespace interview
             command.Parameters.AddWithValue("@del", person.Id);
 
             command.ExecuteNonQuery();     
+        }
+        public void delete(int id)
+        {
+            MySqlCommand command = new MySqlCommand("DELETE FROM people WHERE id= @del", this.connect);
+
+            command.Parameters.AddWithValue("@del", id);
+
+            command.ExecuteNonQuery();
         }
     }
 }

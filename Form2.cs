@@ -13,57 +13,41 @@ namespace interview
 {
     public partial class Form2 : Form
     {
-        private MySqlConnection connection;
+        private PersonDTO personDTO;
+        private MySqlConnection connect;
+        private Form1 form;
+
         public Form2()
         {
             InitializeComponent();
-
-            listView1.Items.Add("ID   NAME");
-
             string ConnectString = "Server=localhost;Database=people;Uid=root;Pwd=12345678;";
+            MySqlConnection connect = new MySqlConnection(ConnectString);
 
-            string Query = "select * from people";
+            personDTO = new PersonDTO(connect);
 
-            MySqlConnection DBconnect = new MySqlConnection(ConnectString);
 
-            MySqlCommand cmdDataBase = new MySqlCommand(Query, DBconnect);
-
-            MySqlDataReader myReader;
-            Person person = new Person();
-            try
-            {
-                DBconnect.Open();
-
-                myReader = cmdDataBase.ExecuteReader();
-
-                while (myReader.Read())
-                {
-                    person.Id = myReader.GetInt32("id");
-
-                    person.Firstname = myReader.GetString("first_name");
-
-                    person.Lastname = myReader.GetString("last_name");
-
-                    listView1.View = View.List;
-
-                    listView1.Items.Add(person.Id + "     " + person.Firstname + " " + person.Lastname);
-
-                }
-            
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
 
         }
        
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btn_cancel_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
 
-       
+        private void btn_save_Click_1(object sender, EventArgs e)
+        {
+
+            
+         
+            personDTO.insert(first_name_txt.Text, last_name_txt.Text);
+            
+            this.Close();
+           // form.refresh(); itt hibat ad!
+
+        }
+
+      
     }
 }
