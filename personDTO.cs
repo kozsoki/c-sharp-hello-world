@@ -107,47 +107,22 @@ namespace interview
 
         }
         //insert method person parameterrel
-        public int insert(Person person)
+        public void insert(Person person)
         {
             MySqlCommand command = new MySqlCommand("INSERT INTO people(first_name, last_name) values('"+ person.Firstname +"', '"+ person.Lastname +"');", this.connect);
 
-
             //ez egy method ami vissza teriti a sorok szamat
             command.ExecuteNonQuery();
 
-            MySqlCommand command2 = new MySqlCommand("SELECT LAST_INSERT_ID() AS id");
-
-            //a myreader mint valtozo megkapja azt az erteket amit a commandbol kiolvasott
-            MySqlDataReader myReader = command.ExecuteReader();
-
-            //hivjuk a Read parancsot
-            myReader.Read();
-
-            //az id egesz szam megkapja azt az erteket amit a myreaderben talal vagyis az utolso id erteket
-            int id = myReader.GetInt32("id");
-
-            person.Id = id;
-
-            myReader.Close();
-
-            return id;
             
         }
-        public void insert(string fname, string lname)
-        {
-            MySqlCommand command = new MySqlCommand("INSERT INTO people(first_name, last_name) values('" + fname + "', '" + lname + "');", this.connect);
-
-
-            //ez egy method ami vissza teriti a sorok szamat
-            command.ExecuteNonQuery();
-
-           
-        }
+        
+        
 
         //letrehozza az update fuggvenyt a person parameterrel aminek nincs visszateritesi erteke
         public void update(Person person)
         {
-            MySqlCommand command = new MySqlCommand("UPDATE people SET (first_name = @fn, last_name = @ln) WHERE id=@id;", this.connect);
+            MySqlCommand command = new MySqlCommand("UPDATE people SET first_name = @fn, last_name = @ln WHERE id=@id;", this.connect);
 
             command.Parameters.AddWithValue("@fn", person.Firstname);
 
@@ -174,5 +149,17 @@ namespace interview
 
             command.ExecuteNonQuery();
         }
+        public void save(Person person)
+        {
+            if (person.Id == 0)
+            {
+                insert(person);
+            }
+            else
+            {
+                update(person);
+            }
+        }
+        
     }
 }
