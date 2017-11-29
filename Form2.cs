@@ -36,23 +36,23 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
 
         public void SetId(int value)
         {
-            textBox1.Text = value.ToString();
+            txtID.Text = value.ToString();
         }
 
-        private void btn_cancel_Click_1(object sender, EventArgs e)
+        private void btnCancel_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btn_save_Click_1(object sender, EventArgs e)
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             Person person = new Person();
 
-            person.Id =Int32.Parse(textBox1.Text.ToString());
+            person.Id =Int32.Parse(txtID.Text.ToString());
 
-            person.Firstname = first_name_txt.Text;
+            person.FirstName = txtFirstName.Text;
 
-            person.Lastname = last_name_txt.Text;
+            person.LastName = txtLastName.Text;
 
             personDTO.Save(person);
 

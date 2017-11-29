@@ -38,9 +38,9 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
 
             person.Id = myReader.GetInt32("id");
             
-            person.Firstname = myReader.GetString("first_name");
+            person.FirstName = myReader.GetString("first_name");
 
-            person.Lastname = myReader.GetString("last_name");
+            person.LastName = myReader.GetString("last_name");
 
             myReader.Close();
 
@@ -61,9 +61,9 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
 
                 person.Id = myReader.GetInt32("id");
 
-                person.Firstname = myReader.GetString("first_name");
+                person.FirstName = myReader.GetString("first_name");
 
-                person.Lastname = myReader.GetString("last_name");
+                person.LastName = myReader.GetString("last_name");
 
                 people.Add(person);
             }
@@ -74,7 +74,7 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
 
         public void Insert(Person person)
         {
-            MySqlCommand command = new MySqlCommand("INSERT INTO people(first_name, last_name) values('"+ person.Firstname +"', '"+ person.Lastname +"');", this.connect);
+            MySqlCommand command = new MySqlCommand("INSERT INTO people(first_name, last_name) values('"+ person.FirstName +"', '"+ person.LastName +"');", this.connect);
 
             command.ExecuteNonQuery();
         }
@@ -83,9 +83,9 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
         {
             MySqlCommand command = new MySqlCommand("UPDATE people SET first_name = @fn, last_name = @ln WHERE id=@id;", this.connect);
 
-            command.Parameters.AddWithValue("@fn", person.Firstname);
+            command.Parameters.AddWithValue("@fn", person.FirstName);
 
-            command.Parameters.AddWithValue("@ln", person.Lastname);
+            command.Parameters.AddWithValue("@ln", person.LastName);
 
             command.Parameters.AddWithValue("@id", person.Id);
 

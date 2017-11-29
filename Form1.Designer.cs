@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_addpperson = new System.Windows.Forms.Button();
+            this.btnAddPerson = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_addpperson
+            // btnAddPerson
             // 
-            this.btn_addpperson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_addpperson.Location = new System.Drawing.Point(22, 407);
-            this.btn_addpperson.Name = "btn_addpperson";
-            this.btn_addpperson.Size = new System.Drawing.Size(110, 42);
-            this.btn_addpperson.TabIndex = 2;
-            this.btn_addpperson.Text = "Add Person";
-            this.btn_addpperson.UseVisualStyleBackColor = false;
-            this.btn_addpperson.Click += new System.EventHandler(this.btn_addpperson_Click_1);
+            this.btnAddPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAddPerson.Location = new System.Drawing.Point(22, 407);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.Size = new System.Drawing.Size(110, 42);
+            this.btnAddPerson.TabIndex = 2;
+            this.btnAddPerson.Text = "Add Person";
+            this.btnAddPerson.UseVisualStyleBackColor = false;
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click_1);
             // 
             // dataGridView1
             // 
@@ -58,24 +58,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(792, 380);
             this.dataGridView1.TabIndex = 11;
             // 
-            // button1
+            // btnExit
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Location = new System.Drawing.Point(634, 408);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 41);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnExit.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnExit.Location = new System.Drawing.Point(634, 408);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(110, 41);
+            this.btnExit.TabIndex = 13;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(795, 493);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btn_addpperson);
+            this.Controls.Add(this.btnAddPerson);
             this.Name = "Form1";
             this.Text = "Person Table";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -84,8 +84,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_addpperson;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddPerson;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 

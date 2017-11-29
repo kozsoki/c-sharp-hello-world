@@ -28,49 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.first_name_txt = new System.Windows.Forms.TextBox();
-            this.last_name_txt = new System.Windows.Forms.TextBox();
-            this.btn_save = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btn_cancel
+            // btnCancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(143, 109);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(82, 40);
-            this.btn_cancel.TabIndex = 0;
-            this.btn_cancel.Text = "CANCEL";
-            this.btn_cancel.UseVisualStyleBackColor = true;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click_1);
+            this.btnCancel.Location = new System.Drawing.Point(143, 109);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(82, 40);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
             // 
-            // first_name_txt
+            // txtFirstName
             // 
-            this.first_name_txt.Location = new System.Drawing.Point(92, 48);
-            this.first_name_txt.Name = "first_name_txt";
-            this.first_name_txt.Size = new System.Drawing.Size(198, 22);
-            this.first_name_txt.TabIndex = 2;
+            this.txtFirstName.Location = new System.Drawing.Point(92, 48);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(198, 22);
+            this.txtFirstName.TabIndex = 2;
             // 
-            // last_name_txt
+            // txtLastName
             // 
-            this.last_name_txt.Location = new System.Drawing.Point(326, 48);
-            this.last_name_txt.Name = "last_name_txt";
-            this.last_name_txt.Size = new System.Drawing.Size(213, 22);
-            this.last_name_txt.TabIndex = 6;
+            this.txtLastName.Location = new System.Drawing.Point(326, 48);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(213, 22);
+            this.txtLastName.TabIndex = 6;
             // 
-            // btn_save
+            // btnSave
             // 
-            this.btn_save.Location = new System.Drawing.Point(37, 109);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(82, 40);
-            this.btn_save.TabIndex = 7;
-            this.btn_save.Text = "SAVE";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click_1);
+            this.btnSave.Location = new System.Drawing.Point(37, 109);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(82, 40);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // label1
             // 
@@ -90,13 +90,13 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Last Name";
             // 
-            // textBox1
+            // txtID
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(48, 22);
-            this.textBox1.TabIndex = 10;
+            this.txtID.Location = new System.Drawing.Point(12, 48);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(48, 22);
+            this.txtID.TabIndex = 10;
             // 
             // label3
             // 
@@ -113,13 +113,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 212);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_save);
-            this.Controls.Add(this.last_name_txt);
-            this.Controls.Add(this.first_name_txt);
-            this.Controls.Add(this.btn_cancel);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.txtLastName);
+            this.Controls.Add(this.txtFirstName);
+            this.Controls.Add(this.btnCancel);
             this.Name = "Form2";
             this.Text = "Add person";
             this.ResumeLayout(false);
@@ -129,13 +129,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.TextBox first_name_txt;
-        private System.Windows.Forms.TextBox last_name_txt;
-        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label3;
     }
 }

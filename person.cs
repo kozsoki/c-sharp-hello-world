@@ -18,13 +18,13 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
             set { id = value; }
         }
 
-        public string Firstname 
+        public string FirstName 
             {
                 get { return firstName; }
                 set { firstName = value; }
             }
 
-        public string Lastname 
+        public string LastName 
             {
                 get { return lastName; }
                 set { lastName = value; }

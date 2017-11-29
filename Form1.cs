@@ -36,16 +36,16 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
 
             Init();
 
-            load_data();
+            LoadData();
         }
 
-        void load_data()
+        void LoadData()
         {
             List<Person> people = personDTO.FindAll();
                     
             foreach (Person person in people)
             {
-                object[] row = new object[] { person.Id.ToString(), person.Firstname, person.Lastname };
+                object[] row = new object[] { person.Id.ToString(), person.FirstName, person.LastName };
                 
                 dataGridView1.Rows.Add(row);
             }
@@ -53,6 +53,10 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
              
         public void Init()
         {
+            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
+
+            DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
+
             dataGridView1.ColumnCount = 3;
 
             dataGridView1.Columns[0].Name = "ID";
@@ -61,31 +65,27 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
 
             dataGridView1.Columns[2].Name = "Last Name";
 
-            DataGridViewButtonColumn deletebuttonColumn = new DataGridViewButtonColumn();
+            deleteButtonColumn.HeaderText = "Delete";
 
-            deletebuttonColumn.HeaderText = "Delete";
+            deleteButtonColumn.Name = "Delete";
 
-            deletebuttonColumn.Name = "Delete";
+            deleteButtonColumn.Text = "Delete";
 
-            deletebuttonColumn.Text = "Delete";
+            deleteButtonColumn.UseColumnTextForButtonValue = true;
 
-            deletebuttonColumn.UseColumnTextForButtonValue = true;
-
-            dataGridView1.Columns.Add(deletebuttonColumn);
+            dataGridView1.Columns.Add(deleteButtonColumn);
 
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellDeleteClick);
 
-            DataGridViewButtonColumn editbuttonColumn = new DataGridViewButtonColumn();
+            editButtonColumn.HeaderText = "Edit";
 
-            editbuttonColumn.HeaderText = "Edit";
+            editButtonColumn.Name = "Edit";
 
-            editbuttonColumn.Name = "Edit";
+            editButtonColumn.Text = "Edit";
 
-            editbuttonColumn.Text = "Edit";
+            editButtonColumn.UseColumnTextForButtonValue = true;
 
-            editbuttonColumn.UseColumnTextForButtonValue = true;
-
-            dataGridView1.Columns.Add(editbuttonColumn);
+            dataGridView1.Columns.Add(editButtonColumn);
 
             dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellEditClick);
         }
@@ -93,13 +93,13 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
         {
             dataGridView1.Rows.Clear();
 
-            load_data();
+            LoadData();
         }
        
       
         private void dataGridView1_CellDeleteClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
+            var SenderGrid = (DataGridView)sender;
 
             if (e.ColumnIndex == dataGridView1.Columns["Delete"].Index && e.RowIndex >= 0 )
             {
@@ -119,17 +119,17 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
 
                 person = personDTO.FindOne(Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
 
-                ((TextBox)form2.Controls["textBox1"]).Text = person.Id.ToString();
+                ((TextBox)form2.Controls["txtID"]).Text = person.Id.ToString();
 
-                ((TextBox)form2.Controls["first_name_txt"]).Text = person.Firstname;
+                ((TextBox)form2.Controls["txtFirstName"]).Text = person.FirstName;
 
-                ((TextBox)form2.Controls["last_name_txt"]).Text = person.Lastname;
+                ((TextBox)form2.Controls["txtLastName"]).Text = person.LastName;
                 
                 form2.Show();
             }
         }
 
-        private void btn_addpperson_Click_1(object sender, EventArgs e)
+        private void btnAddPerson_Click_1(object sender, EventArgs e)
         {
             Form2 form2 = new Form2(this);
 
@@ -138,7 +138,7 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
             form2.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
