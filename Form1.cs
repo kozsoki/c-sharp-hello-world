@@ -112,6 +112,12 @@ namespace interview
 
             if (e.ColumnIndex == dataGridView1.Columns["Delete"].Index && e.RowIndex >= 0 )
             {
+<<<<<<< HEAD
+=======
+                if (e.RowIndex !=0 )
+                {
+                    //itt hibat ad mert az e.RowIndexet le kell nullazni
+>>>>>>> ce46e64c22f96c4f83da0269fe3d40c4f665f3f2
                     personDTO.delete(Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
                     MessageBox.Show("ID= "+dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()+" torolve lett");
                     refresh();
@@ -144,7 +150,11 @@ namespace interview
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+<<<<<<< HEAD
              
+=======
+            textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(); 
+>>>>>>> ce46e64c22f96c4f83da0269fe3d40c4f665f3f2
 
         }
 
