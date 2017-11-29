@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace interview.Properties
+namespace DatabaseConnection.Properties
 {
 
 

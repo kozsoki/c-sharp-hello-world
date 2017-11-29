@@ -1,4 +1,4 @@
-﻿namespace interview
+﻿namespace Greencode.DatabaseConnection.KorosiZsombor
 {
     partial class Form2
     {

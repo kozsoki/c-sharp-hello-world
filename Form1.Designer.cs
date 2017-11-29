@@ -1,4 +1,4 @@
-﻿namespace interview
+﻿namespace Greencode.DatabaseConnection.KorosiZsombor
 {
     partial class Form1
     {
@@ -57,16 +57,15 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(792, 380);
             this.dataGridView1.TabIndex = 11;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Location = new System.Drawing.Point(159, 408);
+            this.button1.Location = new System.Drawing.Point(634, 408);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 41);
             this.button1.TabIndex = 13;
-            this.button1.Text = "Refresh";
+            this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
