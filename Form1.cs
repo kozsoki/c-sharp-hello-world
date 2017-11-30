@@ -99,15 +99,23 @@ namespace Greencode.DatabaseConnection.KorosiZsombor
       
         private void dataGridView1_CellDeleteClick(object sender, DataGridViewCellEventArgs e)
         {
-            var SenderGrid = (DataGridView)sender;
+            var confirmResult = MessageBox.Show("Are you sure to delete person to the table?","Confirm Delete!!",MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {           
+                var SenderGrid = (DataGridView)sender;
 
-            if (e.ColumnIndex == dataGridView1.Columns["Delete"].Index && e.RowIndex >= 0 )
+                if (e.ColumnIndex == dataGridView1.Columns["Delete"].Index && e.RowIndex >= 0 )
+                {
+                    personDTO.Delete(Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
+
+                    //MessageBox.Show("ID= "+dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()+" deleted!");
+
+                    RefreshTable();
+                }
+            }
+            else
             {
-                personDTO.Delete(Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
-
-                MessageBox.Show("ID= "+dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()+" deleted!");
-
-                RefreshTable();
+                // If 'No', do something here.
             }
         }
         
